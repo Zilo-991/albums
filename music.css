@@ -1,0 +1,504 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#070707;
+    color:white;
+    font-family:Inter,sans-serif;
+    overflow-x:hidden;
+}
+
+.home-button{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255,255,255,.08);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 50%;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,.4);
+
+    z-index: 9999;
+
+    text-decoration: none;
+
+    transition: .3s ease;
+}
+
+.home-button:hover{
+    transform: translateY(-5px);
+    background: rgba(255,255,255,.15);
+}
+
+.home-button i{
+    color: white;
+    font-size: 24px;
+}
+
+@font-face{
+    font-family: "Swiss 911 Compressed";
+    src: url("fonts/Swiss\ 911\ Compressed\ Regular.otf") format("truetype");
+    font-weight: bold;
+}
+/* animated background */
+
+.gradient-bg{
+    position:fixed;
+    inset:0;
+
+    background:
+        radial-gradient(circle at top right,
+        rgba(0, 0, 0, 0.192),
+        transparent 50%),
+        
+        #fbfbfb;
+
+    animation:moveBackground 10s infinite alternate;
+
+    z-index:-3;
+}
+
+@keyframes moveBackground{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.1);
+    }
+
+}
+
+
+/* particles */
+
+.particles span{
+
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:black;
+    border-radius:50%;
+    opacity:.2;
+    animation:float 8s infinite;
+}
+
+.particles span:nth-child(1){
+    left:20%;
+    top:80%;
+}
+
+.particles span:nth-child(2){
+    left:40%;
+    top:50%;
+}
+
+.particles span:nth-child(3){
+    left:70%;
+    top:70%;
+}
+
+.particles span:nth-child(4){
+    left:85%;
+    top:30%;
+}
+
+.particles span:nth-child(5){
+    left:15%;
+    top:20%;
+}
+
+@keyframes float{
+
+    50%{
+        transform:translateY(-40px);
+    }
+
+}
+
+.glass{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(30px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    box-shadow:
+    0 8px 40px rgba(0,0,0,.45);
+}
+
+/*Artist Bio*/
+
+.artist-container{
+    position:relative;
+    display:inline-block;
+}
+
+.artist-popup{
+
+    position:absolute;
+    box-shadow: 0 0 30px rgba(255,255,255,.2);
+    background: #fbfbfb;
+    top:50%;
+    left:120%;
+
+    width:360px;
+
+    display:flex;
+    gap:20px;
+
+    padding:25px;
+
+    border-radius:25px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(-50%) translateX(-20px);
+
+    transition:.35s ease;
+
+    z-index:9999;
+}
+
+.artist-popup{
+    position: absolute;
+    box-shadow: 0 0 30px rgba(255,255,255,.2);
+    background: #fbfbfb;
+
+    top: 50%;
+    left: 120%;
+
+    width: 360px;
+    max-height: 400px;
+
+    display: flex;
+    gap: 20px;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    transform: translateY(-50%) translateX(-20px);
+
+    transition: .35s ease;
+
+    z-index: 9999;
+}
+
+.artist-popup::-webkit-scrollbar{
+    width: 8px;
+}
+
+.artist-popup::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+.artist-popup::-webkit-scrollbar-thumb{
+    background: rgba(255,255,255,.2);
+    border-radius: 20px;
+}
+
+.artist-popup::-webkit-scrollbar-thumb:hover{
+    background: rgba(255,255,255,.35);
+}
+
+
+.artist-popup img{
+
+    width:100px;
+    height:100px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+}
+
+
+.artist-stats{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:8px;
+
+    margin:12px 0;
+}
+
+.artist-stats span{
+
+    font-size:14px;
+    color:#000000;
+}
+
+.artist-tags{
+
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:15px;
+}
+
+.artist-tags span{
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    background:rgba(0, 0, 0, 0.08);
+
+    font-size:13px;
+}
+
+.artist-container:hover .artist-popup{
+
+    opacity:1;
+    visibility:visible;
+
+    transform:translateY(-50%) translateX(0);
+
+}
+
+/* hero */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:100px;
+
+    padding:100px;
+    flex-wrap:wrap;
+}
+
+
+.hero-text{
+    color: #000000;
+    width:800px;
+    padding:60px;
+    border-radius:35px;
+}
+
+.small-title{
+    font-family: "Swiss 911 Compressed", Impact, sans-serif;
+    font-weight: bold;
+    color:black;
+    letter-spacing:8px;
+}
+
+.hero-text h1{
+    font-family: "Swiss 911 Compressed", Impact, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size:90px;
+}
+
+.hero-text h2{
+    font-family:'Times New Roman', Times;
+    font-weight: bold;
+    letter-spacing:10px;
+    font-weight:300;
+}
+
+.hero-text p{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 18px;
+    margin-top:30px;
+    color:#000000;
+    line-height:1.8;
+}
+
+.buttons button{
+    font-family:'Times New Roman', Times, serif;
+    font-size:20px;
+    margin-top:40px;
+    color:black;
+    background:transparent;
+
+    padding:16px 32px;
+
+    border-radius:50px;
+    border:1px solid rgb(0, 0, 0);
+
+    margin-right:15px;
+
+    cursor:pointer;
+    transition:.4s;
+}
+
+.buttons button:hover{
+    background: rgba(0, 0, 0, 0.144);
+}
+
+/* floating cover */
+
+.album-card{
+
+    width:420px;
+    border-radius:30px;
+    overflow:hidden;
+
+    animation:floatAlbum 5s ease-in-out infinite;
+}
+
+.album-card img{
+    width:100%;
+    display:block;
+}
+
+@keyframes floatAlbum{
+
+    50%{
+        transform:translateY(-20px);
+    }
+
+}
+
+
+/* info card */
+
+.release-card{
+
+    font-family:'Times New Roman', Times, serif;
+    color: #000000;
+    width:85%;
+    margin:auto;
+
+    padding:50px;
+
+    border-radius:35px;
+
+    display:flex;
+    justify-content:space-around;
+
+    margin-bottom:100px;
+}
+.release-card h3{
+    font-family: "Swiss 911 Compressed", Impact, sans-serif
+}
+
+
+/* tracklist */
+
+.tracks{
+
+    color: #000000;
+    width:85%;
+    margin:auto;
+    padding:60px;
+    border-radius:35px;
+    margin-bottom:100px;
+}
+
+.tracks h2{
+
+    font-family:"Swiss 911 Compressed", Impact, sans-serif;
+    font-size:70px;
+    margin-bottom:50px;
+}
+
+.columns{
+
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:90px;
+}
+
+.columns p{
+
+    font-family:'Times New Roman', Times, serif;
+    font-size: 20px;
+    padding:12px 0;
+    color:#000000;
+
+}
+
+
+/* streaming */
+
+.streaming{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    margin-bottom:120px;
+}
+
+.streaming a{
+    width:85px;
+    height:85px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(30px);
+
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:50%;
+
+    transition:.3s;
+}
+
+.streaming a:hover{
+    transform:translateY(-10px);
+    background:rgba(255,255,255,.15);
+}
+
+.streaming img{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+}
+
+
+/* footer */
+
+footer{
+
+    text-align:center;
+    padding-bottom:80px;
+}
+
+footer h1{
+
+    font-family:"Swiss 911 Compressed", Impact, sans-serif;
+    font-size:90px;
+    letter-spacing:2px;
+    color: #000000;
+}
+
+footer p{
+
+    color:#000000;
+}
